@@ -1,0 +1,15 @@
+（1）ch9项目报错：https://blog.csdn.net/u012760900/article/details/53606546
+
+项目报错是由于我们用Eclipse创建Maven结构的web项目的时候选择了Artifact Id为maven-artchetype-webapp，
+由于这个catalog比较老，用的servlet还是2.3的，而一般现在至少都是2.5，
+在Project Facets里面修改Dynamic web module为2.5的时候就会出现
+Cannot change version of project facet Dynamic web module to 2.5的错误。
+
+解决方案：将web.xml配置文件中的web servlet版本从2.3改为2.5以上的版本，如3.1， 然后再找到项目所在文件夹下.settings
+目录（D:\eclipse-workspace\ch9\.settings）中的org.eclipse.wst.common.project.facet.core.xml
+文件，将其中<installed facet="jst.web" version="2.5"/>改为
+<installed facet="jst.web" version="3.1"/>，然后重新更新maven项目即可
+
+（2）eclipse中tomcat启动不了解决方案
+https://www.cnblogs.com/greatfish/p/5866950.html
+在eclipse中修改tomcat配置，改为项目发布在tomcat的webapps目录下
